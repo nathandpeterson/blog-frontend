@@ -73,7 +73,7 @@ function confirmDelete(id){
 
 function reallyDelete(id){
   axios.delete(SERVER + '/' + id)
-    .then(res => console.log(res))
+    .then(res => getAll())
     .catch(err => console.log(err))
 }
 
@@ -105,7 +105,7 @@ function updatePost(id, data){
 
 function createPost(data){
   axios.post(SERVER, data)
-    .then(res => console.log(res))
+    .then(res => getAll())
     .catch(err => console.log(err))
 }
 
