@@ -10,7 +10,6 @@ function getAll(){
 
 function showAll(data){
   let container = document.querySelector('.container')
-  console.log(data)
   container.innerHTML = ''
   for(let i = 0; i < data.length; i++){
     container.innerHTML += `<h3>${data[i].title}</h3>
@@ -88,7 +87,7 @@ function buildUpdateForm(data){
   let title = document.querySelector('#title-input')
   let content = document.querySelector('#content-input')
   let url = document.querySelector('#url-input')
-  title.placeholder = data.data.title
+  title.value = data.data.title
   content.value = data.data.content
   url.value = data.data.image_url
   document.querySelector('#create-post').addEventListener('click', () => {
@@ -99,7 +98,7 @@ function buildUpdateForm(data){
 
 function updatePost(id, data){
   axios.put(SERVER + '/' + id, data)
-    .then(res => console.log(res))
+    .then(res => getAll())
     .catch(err => console.log(err))
 }
 
